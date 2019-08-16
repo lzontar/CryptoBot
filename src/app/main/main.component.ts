@@ -1,14 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from './service/data.service';
-import { map } from 'rxjs/operators';
 import {WebUtil} from '../../framework/webUtil';
-import { CryptoCurrDTO } from './model/cryptoCurr.model';
+import { CryptoCurrDTO } from '../../shared/model/cryptoCurr.model';
 @Component({
   selector: 'app-crypto-bot-main',
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.scss']
 })
-
+/**/
 export class MainComponent implements OnInit {
   webUtil: WebUtil;
 
@@ -16,14 +15,6 @@ export class MainComponent implements OnInit {
     this.webUtil = new WebUtil();
     dataService.getCryptoCurrencyData().subscribe((data: any) => data.payload.map((coinData) => {
       this.webUtil.addCoin(coinData);
-      if(coinData.cryptoType) {
-        const coin: CryptoCurrDTO = new CryptoCurrDTO();
-        coin.assetId = coinData.assetId;
-        coin.name = coinData.name;
-        coin.originalSymbol = coinData.originalSymbol;
-        coin.price = coinData.price;
-        this.webUtil.modelList.push(coin);
-      }
     }));
   }
 
