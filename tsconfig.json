@@ -16,10 +16,11 @@
     ],
     "lib": [
       "es2018",
-      "dom"
+      "dom",
     ]
   },
   "angularCompilerOptions": {
+    "types" : ["node"],
     "fullTemplateTypeCheck": true,
     "strictInjectionParameters": true
   }
