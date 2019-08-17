@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from './service/data.service';
-import {WebUtil} from '../../framework/webUtil';
-import { CryptoCurrDTO } from '../../shared/model/cryptoCurr.model';
+import { DataService } from '../comService/data.service';
+import {WebUtil} from '../framework/webUtil';
+
 @Component({
   selector: 'app-crypto-bot-main',
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.scss']
 })
-/**/
+/*Main component*/
 export class MainComponent implements OnInit {
   webUtil: WebUtil;
 

@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'CryptoBot';
+  hiddenMenu: boolean = true;
+
+  toggleMenu(menuIsShown: boolean) {
+    this.hiddenMenu = menuIsShown;
+  }
+  hiddenSegmentSelected() {
+    this.hiddenMenu = !this.hiddenMenu;
+  }
 }
