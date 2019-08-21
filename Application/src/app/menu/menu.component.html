@@ -1,0 +1,55 @@
+<div class="menu" [ngStyle]="{'width': this.hiddenMenu ? '4%' : '20%'}">
+  <ul>
+    <li (click)="this.selectSegment('currency')">
+      <span [hidden]="this.hiddenMenu">
+        <i [ngClass]="this.segmentSelected !== 'currency' ? 'fas fa-chevron-right chevron-icon' : 'fas fa-chevron-down chevron-icon'"></i>
+        <label>Currency{{this.webUtil.displaySettings.currency !== undefined ? ": " + this.webUtil.displaySettings.currency : ""}}</label>
+      </span>
+      <i class="fab fa-bitcoin fa-lg menu-icon" style="float: right; padding-right: 16px;"></i>
+    </li>
+    <div [ngClass]="this.segmentSelected === 'currency' && !this.hiddenMenu ? 'segment-active' : 'segment-inactive'" class="segment">
+      <select class="custom-select" (change)="this.onCurrencySelection($event.target.value)">
+          <option selected value="undefined">Choose crypto currency</option>
+          <option *ngFor="let item of this.webUtil.modelList" [value]="item.assetId">{{item.name}}</option>
+      </select>
+    </div>
+    <li (click)="this.selectSegment('time')">
+      <span [hidden]="this.hiddenMenu">
+        <i [ngClass]="this.segmentSelected !== 'time' ? 'fas fa-chevron-right chevron-icon' : 'fas fa-chevron-down chevron-icon'"></i>
+        <label>Time{{this.webUtil.displaySettings.timeInterval !== undefined ? ": " + this.webUtil.displaySettings.timeInterval : ""}}</label>
+      </span>
+      <i class="fas fa-clock fa-lg menu-icon"  style="float: right; padding-right: 16px;"></i>
+    </li>
+    <div [ngClass]="this.segmentSelected === 'time' && !this.hiddenMenu ? 'segment-active' : 'segment-inactive'" class="segment">
+        <select class="custom-select" (change)="this.onTimeSelection($event.target.value)">
+            <option selected value="undefined">Choose time interval</option>
+            <option value="5 min">5 min</option>
+            <option value="15 min">15 min</option>
+            <option value="1 hour">1 hour</option>
+            <option value="4 hours">4 hours</option>
+            <option value="1 day">1 day</option>
+          </select>
+      </div>
+    <li (click)="this.selectSegment('indicators')">
+        <span [hidden]="this.hiddenMenu">
+          <i [ngClass]="this.segmentSelected !== 'indicators' ? 'fas fa-chevron-right chevron-icon' : 'fas fa-chevron-down chevron-icon'"></i>
+          <label>Indicators</label>
+        </span>
+      <i class="fas fa-chart-line fa-lg menu-icon" style="float: right; padding-right: 16px;"></i>
+    </li>
+    <div [ngClass]="this.segmentSelected === 'indicators' && !this.hiddenMenu ? 'segment-active' : 'segment-inactive'" class="segment">
+      <div class="col-auto my-1">
+        <div class="custom-control custom-checkbox mr-sm-2">
+          <input type="checkbox" class="custom-control-input red-line" id="gridCheck1">
+          <label class="custom-control-label red-line" for="gridCheck1">Red line</label>
+        </div>
+      </div>
+      <div class="col-auto my-1">
+        <div class="custom-control custom-checkbox mr-sm-2">
+          <input type="checkbox" class="custom-control-input yellow-line" id="gridCheck2">
+          <label class="custom-control-label yellow-line" for="gridCheck2">Yellow line</label>
+        </div>
+      </div>
+    </div>
+  </ul>
+</div>

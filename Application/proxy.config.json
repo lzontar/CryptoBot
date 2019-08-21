@@ -1,0 +1,13 @@
+{
+  "http://localhost:4200/api": {
+    "target" : "https://api.cryptoapis.io/v1/assets",
+    "secure" : false,
+    "changeOrigin" : true,
+    "logLevel": "debug",
+    "pathRewrite": {"^/api" : ""},
+    "headers":
+      { "Content-Type": "application/json",
+        "X-API-Key": "bc97423c1d10569915b803fee1b9f8ef5a6d2e1d"
+      }
+  }
+}
